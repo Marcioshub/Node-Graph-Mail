@@ -1,0 +1,20 @@
+{{! Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE.txt in the project root for license information.}}
+<h2>Inbox</h2>
+<table class="table" style="table-layout: fixed;">
+  <thead class="thead-light">
+    <th scope="col">From</th>
+    <th scope="col">Subject</th>
+    <th scope="col">Received</th>
+    <th scope="col">Body</th>
+  </thead>
+  <tbody>
+    {{#each messages}}
+    <tr class="{{#unless this.uniqueBody.hasName}}table-primary{{/unless}} text-wrap">
+      <td title="{{this.from.emailAddress.address}}">{{this.from.emailAddress.name}}</td>
+      <td>{{this.subject}}</td>
+      <td>{{this.receivedDateTime}}</td>
+      <td style="word-wrap: break-word">{{this.uniqueBody.content}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
